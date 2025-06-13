@@ -23,11 +23,7 @@ export default function Footer() {
       transition: {
         duration: 0.8,
         delay: 0.2 + i * 0.1,
-<<<<<<< HEAD
         ease: [0.25, 0.4, 0.25, 1],
-=======
-        ease: [0.42, 0, 0.58, 1], // cubic-bezier for easeInOut
->>>>>>> 6f4ebe0 (Your commit message)
       },
     }),
   }
@@ -174,22 +170,7 @@ export default function Footer() {
           <ThemeSlider />
         </motion.div>
 
-<<<<<<< HEAD
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
-          className="mt-8 flex justify-center"
-        >
-          <div className="w-full max-w-4xl h-6 flex items-center">
-            {Array.from({ length: 24 }).map((_, i) => (
-              <div key={i} className={`h-6 flex-1 border-r ${i % 3 === 0 ? "border-white/20" : "border-white/10"}`} />
-            ))}
-          </div>
-        </motion.div>
-=======
       
->>>>>>> 6f4ebe0 (Your commit message)
       </div>
     </footer>
   )
