@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useState } from "react" // Explicit import for React 17 compatibility
+import { useEffect, useState } from "react"
 import { useSearchParams } from "next/navigation"
-import { motion } from "framer-motion"
+import { motion, Variants, Transition } from "framer-motion"
 import { Pacifico } from "next/font/google"
 import { cn } from "@/lib/utils"
 import Navbar from "@/components/navbar"
@@ -16,21 +16,37 @@ const pacifico = Pacifico({
   variable: "--font-pacifico",
 })
 
+type CubicBezier = [number, number, number, number]
+// ... (imports and other code)
+
 function ElegantShape({
   className,
   delay = 0,
   width = 400,
   height = 100,
   rotate = 0,
-  gradient = "from-white/[0.08]",
+  gradient,
 }: {
   className?: string
   delay?: number
   width?: number
   height?: number
   rotate?: number
-  gradient?: string
+  gradient: string
 }) {
+  const elegantShapeTransition: Transition = {
+    duration: 2.4,
+    delay,
+    ease: [0.23, 0.86, 0.39, 0.96] as CubicBezier,
+    opacity: { duration: 1.2 },
+  }
+
+  const floatingShapeTransition: Transition = {
+    duration: 12,
+    repeat: Number.POSITIVE_INFINITY,
+    ease: "easeInOut",
+  }
+
   return (
     <motion.div
       initial={{
@@ -43,23 +59,14 @@ function ElegantShape({
         y: 0,
         rotate: rotate,
       }}
-      transition={{
-        duration: 2.4,
-        delay,
-        ease: [0.23, 0.86, 0.39, 0.96],
-        opacity: { duration: 1.2 },
-      }}
+      transition={elegantShapeTransition}
       className={cn("absolute floating-shape", className)}
     >
       <motion.div
         animate={{
           y: [0, 15, 0],
         }}
-        transition={{
-          duration: 12,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
+        transition={floatingShapeTransition}
         style={{
           width,
           height,
@@ -71,10 +78,9 @@ function ElegantShape({
             "absolute inset-0 rounded-full shape-inner",
             "bg-gradient-to-r to-transparent",
             gradient,
-            "backdrop-blur-[2px] border-2 border-black/[0.05] dark:border-white/[0.15]",
-            "shadow-[0_8px_32px_0_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
-            "after:absolute after:inset-0 after:rounded-full",
-            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.05),transparent_70%)] dark:after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]",
+            // Increased light mode border and shadow visibility
+            "backdrop-blur-[2px] border-2 border-black/[0.1] dark:border-white/[0.15]", // Adjusted border opacity for light mode
+            "shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]", // Adjusted shadow opacity for light mode
           )}
         />
       </motion.div>
@@ -88,16 +94,14 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    // Set loaded state to trigger animations
     setIsLoaded(true)
 
-    // Check if the contact parameter is present in the URL
     if (searchParams.get("contact") === "true") {
       setContactModalOpen(true)
     }
   }, [searchParams])
 
-  const fadeUpVariants = {
+  const fadeUpVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i: number) => ({
       opacity: 1,
@@ -105,13 +109,19 @@ export default function Home() {
       transition: {
         duration: 1,
         delay: 0.5 + i * 0.2,
-        ease: [0.25, 0.4, 0.25, 1],
+        ease: [0.25, 0.4, 0.25, 1] as CubicBezier,
       },
     }),
   }
 
   return (
     <main className="min-h-screen gradient-bg">
+      {/*
+        Consider the purpose of this overlay.
+        If it's adding too much white in light mode, remove it or adjust its CSS.
+        For now, I'm leaving the element, but assuming its CSS definition
+        might need to be adjusted or removed if it's applying a heavy white filter.
+      */}
       <div className="absolute inset-0 light-mode-overlay pointer-events-none" />
 
       <div className="container mx-auto px-4 py-8 relative z-10">
@@ -125,7 +135,7 @@ export default function Home() {
               width={600}
               height={140}
               rotate={12}
-              gradient="from-indigo-500/[0.15]"
+              gradient="from-indigo-500/[0.25]" // Slightly increased opacity for light mode visibility
               className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
             />
 
@@ -134,7 +144,7 @@ export default function Home() {
               width={500}
               height={120}
               rotate={-15}
-              gradient="from-rose-500/[0.15]"
+              gradient="from-rose-500/[0.25]" // Slightly increased opacity
               className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
             />
 
@@ -143,7 +153,7 @@ export default function Home() {
               width={300}
               height={80}
               rotate={-8}
-              gradient="from-violet-500/[0.15]"
+              gradient="from-violet-500/[0.25]" // Slightly increased opacity
               className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
             />
 
@@ -152,7 +162,7 @@ export default function Home() {
               width={200}
               height={60}
               rotate={20}
-              gradient="from-amber-500/[0.15]"
+              gradient="from-amber-500/[0.25]" // Slightly increased opacity
               className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
             />
 
@@ -161,7 +171,7 @@ export default function Home() {
               width={150}
               height={40}
               rotate={-25}
-              gradient="from-cyan-500/[0.15]"
+              gradient="from-cyan-500/[0.25]" // Slightly increased opacity
               className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
             />
           </div>
@@ -172,9 +182,14 @@ export default function Home() {
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/[0.08] dark:border-white/[0.08] mb-6 sm:mb-8"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/20 border border-white/30 mb-6 sm:mb-8 shadow-lg backdrop-blur-md"
+              style={{
+                backdropFilter: "blur(12px)",
+              }}
             >
-              <span className="text-sm text-gray-600 dark:text-white/60 tracking-wide">Frontend Developer</span>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-200 tracking-wide whitespace-nowrap">
+                Frontend Developer
+              </span>
             </motion.div>
 
             <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">

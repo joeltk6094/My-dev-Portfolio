@@ -23,7 +23,11 @@ export default function Footer() {
       transition: {
         duration: 0.8,
         delay: 0.2 + i * 0.1,
+<<<<<<< HEAD
         ease: [0.25, 0.4, 0.25, 1],
+=======
+        ease: [0.42, 0, 0.58, 1], // cubic-bezier for easeInOut
+>>>>>>> 6f4ebe0 (Your commit message)
       },
     }),
   }
@@ -170,6 +174,7 @@ export default function Footer() {
           <ThemeSlider />
         </motion.div>
 
+<<<<<<< HEAD
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -182,6 +187,9 @@ export default function Footer() {
             ))}
           </div>
         </motion.div>
+=======
+      
+>>>>>>> 6f4ebe0 (Your commit message)
       </div>
     </footer>
   )
