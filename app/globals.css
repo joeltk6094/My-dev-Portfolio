@@ -90,7 +90,7 @@
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%) !important;
+  background: linear-gradient(135deg, #eff2f5 0%, #e8edf1 50%, #dee5ed 100%) !important; /* Slightly darker light colors */
   min-height: 100vh;
   width: 100%;
 }
@@ -98,6 +98,12 @@
 /* Ensure dark mode works */
 html.dark .gradient-bg {
   background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%) !important;
+}
+
+/* Light mode specific overrides for better contrast */
+.light-mode-overlay {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(244, 63, 94, 0.05) 100%);
+  transition: background 0.5s ease;
 }
 
 .star {
@@ -109,6 +115,17 @@ html.dark .gradient-bg {
 .frontend-pill {
   background-color: rgba(229, 231, 235, 0.8) !important;
   border-color: rgba(209, 213, 219, 0.8) !important;
+}
+
+
+.hero-pill {
+  background-color: rgba(243, 244, 246, 0.6); /* Very light grey, subtle opacity */
+  border: 1px solid rgba(229, 231, 235, 0.8); /* Slightly darker light grey border */
+}
+
+html.dark .hero-pill {
+  background-color: rgba(255, 255, 255, 0.2); /* Your current dark mode white/20 */
+  border-color: rgba(255, 255, 255, 0.3);    /* Your current dark mode white/30 */
 }
 
 
@@ -471,4 +488,9 @@ html.dark .navbar-text:hover {
 html.dark .frontend-pill {
   background-color: rgba(31, 41, 55, 0.5) !important;
   border: 1px solid rgba(55, 65, 81, 0.5) !important;
+}
+
+
+.b {
+  @apply border border-red-500;
 }
