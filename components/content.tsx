@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion"
 import { useState } from "react"
-
+import Image from 'next/image'
 
 const projects = [
     {
@@ -161,33 +161,35 @@ export default function Content() {
                 {/* Membership Section */}
                 <div className="mt-24">
                     {/* Header with Get Started button */}
-                    <div className="flex justify-between items-start mb-12">
-                        <div className="text-center flex-1">
-                            <h2 className="text-5xl font-bold text-foreground mb-4">
+                    <div className="flex flex-col sm:flex-row justify-between items-start mb-12 px-4 sm:px-8">
+                        <div className="text-center sm:text-left flex-1">
+                            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
                                 Front-end development that brings
                                 <br />
                                 ideas to life.
                             </h2>
-                            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto sm:mx-0">
                                 With one year of dedicated front-end development experience, I create modern, responsive web
                                 applications using the latest technologies and best practices.
                             </p>
                         </div>
                     </div>
 
-                    {/* Two Card Layout */}
-                    <div className="flex flex-col lg:flex-row gap-6">
-                        {/* Left Card - Your partner in progress */}
-                        <div className="bg-orange-100 dark:bg-orange-900/20 rounded-3xl p-8 h-96 flex flex-col justify-end relative overflow-hidden transition-all duration-500 ease-in-out flex-1 hover:flex-[1.6] peer cursor-pointer border border-orange-200 dark:border-orange-800 hover:shadow-xl dark:hover:shadow-orange-900/20">
-                            <div className="absolute inset-0">
-                                <img
-                                    src="/placeholder.svg?height=400&width=600"
+                    {/* Cards section */}
+                    <div className="flex flex-col sm:flex-row gap-6 px-4 sm:px-8">
+                        {/* Left Card */}
+                        <div className="bg-orange-100 dark:bg-orange-900/20 rounded-3xl p-8 h-96 sm:h-auto flex flex-col justify-end relative overflow-hidden transition-all duration-500 ease-in-out flex-1 hover:flex-[1.6] peer cursor-pointer border border-orange-200 dark:border-orange-800 hover:shadow-xl dark:hover:shadow-orange-900/20">
+                            <div className="absolute inset-0 w-full h-full">
+                                <Image
+                                    src="dev.jpg"
                                     alt="Professional developer workspace"
-                                    className="w-full h-full object-cover"
+                                    width={900}
+                                    height={900}
+                                    className="object-cover w-full h-full"
                                 />
                             </div>
                             <div className="relative z-10 text-white">
-                                <h3 className="text-4xl font-bold mb-2">
+                                <h3 className="text-3xl sm:text-4xl font-bold mb-2">
                                     Your development
                                     <br />
                                     partner
@@ -207,12 +209,12 @@ export default function Content() {
                             </div>
                         </div>
 
-                        {/* Right Card - Your tools to take control */}
-                        <div className="bg-teal-100 dark:bg-teal-900/20 rounded-3xl p-8 h-96 flex flex-col justify-end relative overflow-hidden transition-all duration-500 ease-in-out flex-1 hover:flex-[1.6] peer-hover:flex-[0.8] cursor-pointer border border-teal-200 dark:border-teal-800 hover:shadow-xl dark:hover:shadow-teal-900/20">
+                        {/* Right Card */}
+                        <div className="bg-teal-100 dark:bg-teal-900/20 rounded-3xl p-8 h-96 sm:h-auto flex flex-col justify-end relative overflow-hidden transition-all duration-500 ease-in-out flex-1 hover:flex-[1.6] peer-hover:flex-[0.8] cursor-pointer border border-teal-200 dark:border-teal-800 hover:shadow-xl dark:hover:shadow-teal-900/20">
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <div className="relative">
                                     {/* Tech Stack Mockup */}
-                                    <div className="bg-card rounded-2xl p-4 shadow-lg mb-4 w-64 border border-border">
+                                    <div className="bg-card rounded-2xl p-4 shadow-lg mb-4 w-64 sm:w-80 border border-border">
                                         <div className="space-y-3">
                                             <div className="flex items-center justify-between bg-muted rounded-lg p-2">
                                                 <div className="flex items-center gap-2">
@@ -277,7 +279,7 @@ export default function Content() {
                                 </div>
                             </div>
                             <div className="relative z-10 text-white">
-                                <h3 className="text-4xl font-bold">
+                                <h3 className="text-3xl sm:text-4xl font-bold">
                                     Modern tech
                                     <br />
                                     stack
@@ -286,6 +288,7 @@ export default function Content() {
                         </div>
                     </div>
                 </div>
+
 
                 {/* Guides Section */}
                 <div className="mt-24">
@@ -551,10 +554,10 @@ export default function Content() {
                             </svg>
                         </div>
 
-                        <Accordion type="single" collapsible className="w-full space-y-4">
+                        <Accordion type="single" collapsible className="w-full space-y-4 rounded-lg overflow-hidden">
                             <AccordionItem
                                 value="item-1"
-                                className="border border-border rounded-lg px-6 bg-card hover:bg-accent/50 transition-colors"
+                                className="border border-border rounded-3xl px-6 bg-card hover:bg-accent/50 transition-colors"
                             >
                                 <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:no-underline py-6">
                                     What is your experience level in front-end development?
@@ -568,7 +571,7 @@ export default function Content() {
 
                             <AccordionItem
                                 value="item-2"
-                                className="border border-border rounded-lg px-6 bg-card hover:bg-accent/50 transition-colors"
+                                className="border border-border rounded-3xl px-6 bg-card hover:bg-accent/50 transition-colors"
                             >
                                 <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:no-underline py-6">
                                     What technologies do you specialize in?
@@ -582,7 +585,7 @@ export default function Content() {
 
                             <AccordionItem
                                 value="item-3"
-                                className="border border-border rounded-lg px-6 bg-card hover:bg-accent/50 transition-colors"
+                                className="border border-border rounded-3xl px-6 bg-card hover:bg-accent/50 transition-colors"
                             >
                                 <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:no-underline py-6">
                                     What types of projects have you worked on?
@@ -597,7 +600,7 @@ export default function Content() {
 
                             <AccordionItem
                                 value="item-4"
-                                className="border border-border rounded-lg px-6 bg-card hover:bg-accent/50 transition-colors"
+                                className="border border-border rounded-3xl px-6 bg-card hover:bg-accent/50 transition-colors"
                             >
                                 <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:no-underline py-6">
                                     How do you approach new projects?
@@ -612,7 +615,7 @@ export default function Content() {
 
                             <AccordionItem
                                 value="item-5"
-                                className="border border-border rounded-lg px-6 bg-card hover:bg-accent/50 transition-colors"
+                                className="border border-border rounded-3xl px-6 bg-card hover:bg-accent/50 transition-colors"
                             >
                                 <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:no-underline py-6">
                                     What makes you different as a developer?
@@ -627,7 +630,7 @@ export default function Content() {
 
                             <AccordionItem
                                 value="item-6"
-                                className="border border-border rounded-lg px-6 bg-card hover:bg-accent/50 transition-colors"
+                                className="border border-border rounded-3xl px-6 bg-card hover:bg-accent/50 transition-colors"
                             >
                                 <AccordionTrigger className="text-left text-lg font-semibold text-foreground hover:no-underline py-6">
                                     Are you available for new projects?
@@ -639,6 +642,7 @@ export default function Content() {
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>
+
                     </div>
                 </div>
             </div>
