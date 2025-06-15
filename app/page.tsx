@@ -10,6 +10,7 @@ import Footer from "@/components/footer"
 import ProjectCard from "@/components/project-card"
 import ContactModal from "@/components/contact-modal"
 import { Code, Database, Globe, Palette, Box, Zap } from "lucide-react"
+import Content from "@/components/content"
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -263,225 +264,16 @@ export default function Home() {
             <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
               <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-2 sm:px-4">
                 I&apos;m passionate about building performant, accessible, and beautiful web experiences.
-              </p>
+                </p>
             </motion.div>
           </div>
         </section>
 
         {/* Top row of project cards */}
 
-{/* Top row of project cards */}
-<div className="p-7">
-  <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-7xl mx-auto px-6">
-    {/* React Card */}
-    <div className="group relative h-64 rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-      {/* Clean background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-100/50 rounded-3xl">
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-cyan-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl" />
-      </div>
 
-      {/* Content */}
-      <div className="relative z-10 p-8 h-full flex flex-col justify-between">
-        <div>
-          <div className="w-14 h-14 rounded-2xl bg-blue-500 mb-6 flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-110">
-            <Code className="w-7 h-7 text-white" />
-          </div>
-          <span className="text-xs font-semibold text-gray-500 tracking-wider uppercase mb-2 block">
-            Frontend
-          </span>
-          <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-            React
-          </h3>
-        </div>
-        
-        <div className="flex items-center text-sm text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
-          <span>Explore</span>
-          <div className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </div>
-        </div>
       </div>
-    </div>
-
-    {/* TypeScript Card */}
-    <div className="group relative h-64 rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-      {/* Clean background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100/50 rounded-3xl">
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-100/50 to-purple-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 p-8 h-full flex flex-col justify-between">
-        <div>
-          <div className="w-14 h-14 rounded-2xl bg-indigo-600 mb-6 flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-110">
-            <Database className="w-7 h-7 text-white" />
-          </div>
-          <span className="text-xs font-semibold text-gray-500 tracking-wider uppercase mb-2 block">
-            Development
-          </span>
-          <h3 className="text-2xl font-bold text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
-            TypeScript
-          </h3>
-        </div>
-        
-        <div className="flex items-center text-sm text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
-          <span>Explore</span>
-          <div className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {/* Second row of project cards */}
-  <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-7xl mx-auto px-6">
-    {/* Next.js Card */}
-    <div className="group relative h-64 rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-      {/* Clean background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-slate-50 border border-gray-100/50 rounded-3xl">
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-100/50 to-slate-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 p-8 h-full flex flex-col justify-between">
-        <div>
-          <div className="w-14 h-14 rounded-2xl bg-gray-900 mb-6 flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-110">
-            <Globe className="w-7 h-7 text-white" />
-          </div>
-          <span className="text-xs font-semibold text-gray-500 tracking-wider uppercase mb-2 block">
-            Framework
-          </span>
-          <h3 className="text-2xl font-bold text-gray-900 group-hover:text-gray-700 transition-colors duration-300">
-            Next.js
-          </h3>
-        </div>
-        
-        <div className="flex items-center text-sm text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
-          <span>Explore</span>
-          <div className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {/* Tailwind Card */}
-    <div className="group relative h-64 rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-      {/* Clean background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 to-teal-50 border border-cyan-100/50 rounded-3xl">
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-100/50 to-teal-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 p-8 h-full flex flex-col justify-between">
-        <div>
-          <div className="w-14 h-14 rounded-2xl bg-cyan-500 mb-6 flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-110">
-            <Palette className="w-7 h-7 text-white" />
-          </div>
-          <span className="text-xs font-semibold text-gray-500 tracking-wider uppercase mb-2 block">
-            CSS
-          </span>
-          <h3 className="text-2xl font-bold text-gray-900 group-hover:text-cyan-600 transition-colors duration-300">
-            Tailwind
-          </h3>
-        </div>
-        
-        <div className="flex items-center text-sm text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
-          <span>Explore</span>
-          <div className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {/* In Progress section */}
-  <section className="text-center mb-24 max-w-6xl mx-auto px-6">
-    <h2 className="text-6xl md:text-7xl mb-6 font-bold">
-      <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-white/80">
-        In Progress
-      </span>
-      <span className="text-emerald-500">.</span>
-    </h2>
-    <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
-      Projects I&apos;m currently working on, from open source contributions
-      <br />
-      to experimental web applications and UI components.
-    </p>
-  </section>
-
-  {/* Bottom row of project cards */}
-  <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-7xl mx-auto px-6">
-    {/* Three.js Card */}
-    <div className="group relative h-64 rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-      {/* Clean background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-50 border border-orange-100/50 rounded-3xl">
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 to-amber-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 p-8 h-full flex flex-col justify-between">
-        <div>
-          <div className="w-14 h-14 rounded-2xl bg-orange-500 mb-6 flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-110">
-            <Box className="w-7 h-7 text-white" />
-          </div>
-          <span className="text-xs font-semibold text-gray-500 tracking-wider uppercase mb-2 block">
-            3D Graphics
-          </span>
-          <h3 className="text-2xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
-            Three.js
-          </h3>
-        </div>
-        
-        <div className="flex items-center text-sm text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
-          <span>Explore</span>
-          <div className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {/* WebGL Card */}
-    <div className="group relative h-64 rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-      {/* Clean background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-100/50 rounded-3xl">
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-100/50 to-pink-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 p-8 h-full flex flex-col justify-between">
-        <div>
-          <div className="w-14 h-14 rounded-2xl bg-purple-500 mb-6 flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-110">
-            <Zap className="w-7 h-7 text-white" />
-          </div>
-          <span className="text-xs font-semibold text-gray-500 tracking-wider uppercase mb-2 block">
-            Animations
-          </span>
-          <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors duration-300">
-            WebGL
-          </h3>
-        </div>
-        
-        <div className="flex items-center text-sm text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
-          <span>Explore</span>
-          <div className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-      </div>
+      <Content/>
 
       <Footer />
 
