@@ -181,7 +181,7 @@ export default function Content() {
                         <div className="bg-orange-100 dark:bg-orange-900/20 rounded-3xl p-8 h-96 sm:h-auto flex flex-col justify-end relative overflow-hidden transition-all duration-500 ease-in-out flex-1 hover:flex-[1.6] peer cursor-pointer border border-orange-200 dark:border-orange-800 hover:shadow-xl dark:hover:shadow-orange-900/20">
                             <div className="absolute inset-0 w-full h-full">
                                 <Image
-                                    src="dev.jpg"
+                                    src="great-sky-with-clouds.jpg"
                                     alt="Professional developer workspace"
                                     width={900}
                                     height={900}
@@ -189,7 +189,7 @@ export default function Content() {
                                 />
                             </div>
                             <div className="relative z-10 text-white">
-                                <h3 className="text-3xl sm:text-4xl font-bold mb-2">
+                                <h3 className="text-3xl sm:text-4xl font-bold mb-2 text-black dark:text-white">
                                     Your development
                                     <br />
                                     partner
@@ -198,7 +198,7 @@ export default function Content() {
                                     <button className="bg-background text-foreground px-4 py-2 rounded-full text-sm font-medium mb-4 hover:bg-accent transition-colors">
                                         View Portfolio
                                     </button>
-                                    <p className="text-sm leading-relaxed">
+                                    <p className="text-sm leading-relaxed text-black dark:text-white">
                                         One year of focused front-end development
                                         <br />
                                         experience with modern frameworks and
@@ -279,7 +279,7 @@ export default function Content() {
                                 </div>
                             </div>
                             <div className="relative z-10 text-white">
-                                <h3 className="text-3xl sm:text-4xl font-bold">
+                                <h3 className="text-3xl sm:text-4xl font-bold text-black dark:text-white">
                                     Modern tech
                                     <br />
                                     stack

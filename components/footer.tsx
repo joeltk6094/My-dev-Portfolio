@@ -92,7 +92,7 @@ export default function Footer() {
             <h3 className={cn("text-foreground font-medium mb-4 tracking-wide", pacifico.className)}>Connect</h3>
             <div className="flex justify-center md:justify-start space-x-4">
               <Link
-                href="https://github.com/joeldev"
+                href="https://github.com/joelthomasitday"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors duration-200 hover:scale-110 transform"
@@ -101,7 +101,7 @@ export default function Footer() {
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="https://linkedin.com/in/joeldev"
+                href="https://www.linkedin.com/in/joel-thomas-89152a288/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors duration-200 hover:scale-110 transform"
@@ -110,7 +110,7 @@ export default function Footer() {
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
-                href="https://twitter.com/joeldev"
+                href="https://x.com/jo_ltk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors duration-200 hover:scale-110 transform"
@@ -119,7 +119,7 @@ export default function Footer() {
                 <span className="sr-only">Twitter</span>
               </Link>
               <Link
-                href="https://codesandbox.io/u/joeldev"
+                href="https://codesandbox.io/u/joeltk6094"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors duration-200 hover:scale-110 transform"

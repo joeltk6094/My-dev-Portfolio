@@ -13,6 +13,7 @@ import { Code, Database, Globe, Palette, Box, Zap } from "lucide-react"
 import Content from "@/components/content"
 import { useTheme } from "next-themes"
 import { Moon, Sun } from "lucide-react"
+import Image from "next/image"
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -165,6 +166,15 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="w-full relative z-10">
+          <div className="absolute inset-0 z-0">
+    <Image 
+      src="great-sky-with-clouds.jpg" 
+      alt="Hero background" 
+      fill 
+      className="object-cover object-center opacity-30"
+      priority
+    />
+  </div>
         <Navbar />
 
         {/* Hero Section */}
