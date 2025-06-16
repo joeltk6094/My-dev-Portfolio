@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react" // Explicit import for React 17 compatibility
+import type React from "react" 
 import { useEffect, useRef, useState } from "react"
 import { useTheme } from "next-themes"
 import { Moon, Sun } from "lucide-react"
@@ -16,7 +16,7 @@ const pacifico = Pacifico({
 
 export default function ThemeSlider() {
   const { setTheme, resolvedTheme } = useTheme()
-  const [position, setPosition] = useState(75) // Default to light mode position
+  const [position, setPosition] = useState(75) 
   const [isDragging, setIsDragging] = useState(false)
   const [mounted, setMounted] = useState(false)
   const sliderRef = useRef<HTMLDivElement>(null)

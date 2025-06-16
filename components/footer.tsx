@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { Pacifico } from "next/font/google"
 import { Github, Linkedin, Twitter, CodesandboxIcon as CodeSandbox } from "lucide-react"
+import { CleanGlassPill } from "@/app/page"
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -29,32 +30,40 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative py-16 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#030303]/80 to-[#030303]" />
+    <footer className="relative py-16 overflow-hidden bg-background border-t border-border/50">
+      {/* Background gradient - theme aware */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
 
-      {/* Decorative shapes */}
+      {/* Decorative shapes - theme aware */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 50, rotate: -15 }}
           animate={{ opacity: 1, y: 0, rotate: -8 }}
           transition={{ duration: 2, ease: [0.23, 0.86, 0.39, 0.96] }}
           className="absolute bottom-[-5%] left-[-10%] w-[500px] h-[120px]"
         >
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/[0.15] to-transparent backdrop-blur-[2px] border-2 border-white/[0.08] shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]" />
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50, rotate: 15 }}
-          animate={{ opacity: 1, y: 0, rotate: 12 }}
-          transition={{ duration: 2, delay: 0.3, ease: [0.23, 0.86, 0.39, 0.96] }}
-          className="absolute top-[10%] right-[-5%] w-[300px] h-[80px]"
-        >
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-rose-500/[0.15] to-transparent backdrop-blur-[2px] border-2 border-white/[0.08] shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]" />
-        </motion.div>
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-transparent backdrop-blur-[2px] border-2 border-border/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]" />
+        </motion.div> */}
+         <CleanGlassPill
+              delay={0.4}
+              width={550}
+              height={120}
+              rotate={-12}
+              color="bg-gradient-to-br from-pink-400/40 via-rose-500/35 to-pink-600/40"
+              className="right-[-12%] top-[5%]"
+            />
       </div>
 
       <div className="container relative z-10 mx-auto px-4">
+         <CleanGlassPill
+              delay={0.6}
+              width={520}
+              height={110}
+              rotate={25}
+              color="bg-gradient-to-br from-emerald-400/40 via-teal-500/35 to-emerald-600/40"
+              className="left-[-8%] bottom-[8%]"
+            />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <motion.div
             custom={0}
@@ -62,11 +71,11 @@ export default function Footer() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-white/60 text-center md:text-left"
+            className="text-muted-foreground text-center md:text-left"
           >
             <p className="tracking-wide">
-              © {currentYear} <span className={cn("text-white/80", pacifico.className)}>Joel</span> •{" "}
-              <Link href="/colophon" className="hover:text-white/90 transition-colors">
+              © {currentYear} <span className={cn("text-foreground font-medium", pacifico.className)}>Joel</span> •{" "}
+              <Link href="/colophon" className="hover:text-foreground transition-colors duration-200">
                 Colophon
               </Link>
             </p>
@@ -80,13 +89,13 @@ export default function Footer() {
             viewport={{ once: true }}
             className="space-y-4 text-center md:text-left"
           >
-            <h3 className={cn("text-white/90 font-medium mb-4 tracking-wide", pacifico.className)}>Connect</h3>
+            <h3 className={cn("text-foreground font-medium mb-4 tracking-wide", pacifico.className)}>Connect</h3>
             <div className="flex justify-center md:justify-start space-x-4">
               <Link
                 href="https://github.com/joeldev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/60 hover:text-white/90 transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200 hover:scale-110 transform"
               >
                 <Github size={24} />
                 <span className="sr-only">GitHub</span>
@@ -95,7 +104,7 @@ export default function Footer() {
                 href="https://linkedin.com/in/joeldev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/60 hover:text-white/90 transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200 hover:scale-110 transform"
               >
                 <Linkedin size={24} />
                 <span className="sr-only">LinkedIn</span>
@@ -104,7 +113,7 @@ export default function Footer() {
                 href="https://twitter.com/joeldev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/60 hover:text-white/90 transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200 hover:scale-110 transform"
               >
                 <Twitter size={24} />
                 <span className="sr-only">Twitter</span>
@@ -113,7 +122,7 @@ export default function Footer() {
                 href="https://codesandbox.io/u/joeldev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/60 hover:text-white/90 transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200 hover:scale-110 transform"
               >
                 <CodeSandbox size={24} />
                 <span className="sr-only">CodeSandbox</span>
@@ -129,30 +138,30 @@ export default function Footer() {
             viewport={{ once: true }}
             className="space-y-4 text-center md:text-left"
           >
-            <h3 className={cn("text-white/90 font-medium mb-4 tracking-wide", pacifico.className)}>Navigation</h3>
+            <h3 className={cn("text-foreground font-medium mb-4 tracking-wide", pacifico.className)}>Navigation</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-white/60 hover:text-white/90 transition-colors tracking-wide">
+                <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors duration-200 tracking-wide">
                   Work
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-white/60 hover:text-white/90 transition-colors tracking-wide">
+                <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors duration-200 tracking-wide">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/play" className="text-white/60 hover:text-white/90 transition-colors tracking-wide">
+                <Link href="/play" className="text-muted-foreground hover:text-foreground transition-colors duration-200 tracking-wide">
                   Play
                 </Link>
               </li>
               <li>
-                <Link href="/notes" className="text-white/60 hover:text-white/90 transition-colors tracking-wide">
+                <Link href="/notes" className="text-muted-foreground hover:text-foreground transition-colors duration-200 tracking-wide">
                   Notes
                 </Link>
               </li>
               <li>
-                <Link href="/message" className="text-white/60 hover:text-white/90 transition-colors tracking-wide">
+                <Link href="/message" className="text-muted-foreground hover:text-foreground transition-colors duration-200 tracking-wide">
                   Contact
                 </Link>
               </li>
@@ -169,8 +178,6 @@ export default function Footer() {
         >
           <ThemeSlider />
         </motion.div>
-
-      
       </div>
     </footer>
   )

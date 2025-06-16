@@ -11,16 +11,17 @@ import ProjectCard from "@/components/project-card"
 import ContactModal from "@/components/contact-modal"
 import { Code, Database, Globe, Palette, Box, Zap } from "lucide-react"
 import Content from "@/components/content"
+import { useTheme } from "next-themes"
+import { Moon, Sun } from "lucide-react"
 
 const pacifico = Pacifico({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-pacifico",
 })
-
 type CubicBezier = [number, number, number, number]
 
-function CleanGlassPill({
+export function CleanGlassPill({
   className,
   delay = 0,
   width = 400,
@@ -158,6 +159,8 @@ export default function Home() {
       },
     }),
   }
+  const { setTheme, resolvedTheme } = useTheme()
+
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
@@ -234,46 +237,75 @@ export default function Home() {
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full mb-6 sm:mb-8 shadow-lg navbar-bg backdrop-blur-sm"
+              className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full mb-6 sm:mb-8 shadow-lg backdrop-blur-sm cursor-pointer"
               style={{
                 background: "rgba(255, 255, 255, 0.25)",
                 backdropFilter: "blur(12px)",
                 boxShadow: "0 8px 25px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6)",
               }}
+              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
             >
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-200 tracking-wide whitespace-nowrap ">
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-200 tracking-wide whitespace-nowrap flex items-center gap-2">
+                <Code className={
+                  `w-4 h-4 transition-transform duration-300 ${resolvedTheme === 'dark' ? 'text-purple-300' : 'text-amber-500'
+                  } ${resolvedTheme === 'dark' ? 'rotate-0' : '-rotate-12'
+                  }`
+                } />
                 Frontend Developer
+                <motion.span
+                  className="w-2 h-2 rounded-full ml-1"
+                  animate={{
+                    backgroundColor: resolvedTheme === 'dark' ? '#818cf8' : '#f59e0b'
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
               </span>
+
+              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-200 rounded-full" />
             </motion.div>
 
             <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
               <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-4 sm:mb-6 tracking-tight">
-                <span className="text-gray-900  dark:text-white">Hi. I&apos;m</span>
+                <span className="text-foreground transition-colors duration-300">Hi. I&apos;m</span>
                 <br />
                 <span
                   className={cn(
-                    "bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600",
+                    "bg-clip-text text-transparent transition-all duration-500",
+                    "bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600",
+                    "dark:from-blue-400 dark:via-purple-400 dark:to-pink-400",
+                    "animate-gradient-x bg-300%",
                     pacifico.className,
                   )}
+                  style={{
+                    backgroundSize: "300% 300%",
+                    animation: "gradient-x 8s ease infinite",
+                  }}
                 >
                   Joel.
                 </span>
               </h1>
+
+              <style jsx>{`
+    @keyframes gradient-x {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+  `}</style>
             </motion.div>
 
             <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
               <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-2 sm:px-4">
                 I&apos;m passionate about building performant, accessible, and beautiful web experiences.
-                </p>
+              </p>
             </motion.div>
           </div>
         </section>
-
-        {/* Top row of project cards */}
-
-
       </div>
-      <Content/>
+      <Content />
 
       <Footer />
 
