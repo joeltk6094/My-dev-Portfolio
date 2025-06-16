@@ -246,11 +246,11 @@ export default function Home() {
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
             >
               <span className="text-sm font-medium text-gray-700 dark:text-gray-200 tracking-wide whitespace-nowrap flex items-center gap-2">
-                <Code className={
+                {/* <Code className={
                   `w-4 h-4 transition-transform duration-300 ${resolvedTheme === 'dark' ? 'text-purple-300' : 'text-amber-500'
                   } ${resolvedTheme === 'dark' ? 'rotate-0' : '-rotate-12'
                   }`
-                } />
+                } /> */}
                 Frontend Developer
                 <motion.span
                   className="w-2 h-2 rounded-full ml-1"

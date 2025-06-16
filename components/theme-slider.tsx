@@ -119,11 +119,19 @@ export default function ThemeSlider() {
           onClick={handleSliderClick}
         >
           {/* Tick marks */}
-          <div className="absolute top-1/2 left-0 right-0 flex justify-between px-4 -translate-y-1/2 pointer-events-none">
-            {Array.from({ length: 21 }).map((_, i) => (
-              <div key={i} className={`w-px h-4 ${i > 5 && i < 15 ? "bg-white/30" : "bg-white/15"}`} />
-            ))}
-          </div>
+         <div className="absolute top-1/2 left-0 right-0 flex justify-between px-4 -translate-y-1/2 pointer-events-none">
+  {Array.from({ length: 21 }).map((_, i) => (
+    <div 
+      key={i} 
+      className={cn(
+        "w-px h-4 transition-colors duration-300",
+        resolvedTheme === 'dark' 
+          ? i > 5 && i < 15 ? "bg-white/30" : "bg-white/15"
+          : i > 5 && i < 15 ? "bg-gray-700/50" : "bg-gray-700/30"
+      )} 
+    />
+  ))}
+</div>
 
           {/* Draggable thumb */}
           <motion.div
@@ -159,11 +167,6 @@ export default function ThemeSlider() {
           >
             {isLight ? "Light Brilliance" : "Dark Elegance"}
           </span>
-        </div>
-
-        {/* Debug info - remove in production */}
-        <div className="mt-2 text-center text-xs text-white/40">
-          Theme: {resolvedTheme} | Position: {Math.round(position)}
         </div>
       </motion.div>
     </div>
